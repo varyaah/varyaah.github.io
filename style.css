@@ -1,3 +1,8 @@
+html{
+   background-color:#ccc;
+}
+
+
 .bar {
     background-color: rgb(245, 193, 97);
     Max-width: 200px;
@@ -31,3 +36,27 @@
     background-color: rgb(165, 113, 16);
     color: white;
 }
+
+body {
+   font-family:Arial,sans-serif;
+   background-color:#fff;
+   max-width:960px;
+   width:90%;
+   margin:auto;
+   padding:1%;
+}
+
+
+footer {
+   clear:both;
+   text-align:center;
+}
+
+h1.page-header{
+   font-family:'Inknut Antiqua',serif;
+   width:80%;
+   margin:auto;
+   text-align:center;
+   text-shadow: 4px 4px 4px #aaa;
+}
+
