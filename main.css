@@ -1,22 +1,33 @@
-.title{
-    font-size:"65px";
-}
-h2{
-    background-color:#607d8b;
-    color:#ffffff;
-}
-p{
-    width: 10%;
-    font-size: 16 px;
-}  
-Navigation{
-    color: aqua;
-}
-p{
-    width: 60%;
-    font-size: 20px;
+.bar {
+    background-color: rgb(245, 193, 97);
+    Max-width: 200px;
+    width:100%;
+    list-style: none;
+    padding: 0;
 }
 
+.bar li {
+    width: 100%;
+    height:50px;
+    border-bottom: 1px solid rgb(235, 177, 69);
+}
 
+.bar li a {
+    padding-left:20px;
+    text-align:left;
+    color:black;
+    max-width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
 
+.bar li a:hover {
+    background-color: rgb(235, 177, 69);
+}
 
+.bar li a.active {
+    background-color: rgb(165, 113, 16);
+    color: white;
+}
