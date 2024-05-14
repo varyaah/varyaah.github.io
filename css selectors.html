@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CSS Selectors by Varya Hinkel</title>
+        <link href="css/pre.css" rel="stylesheet">
+        <link href="css/main.css" rel="stylesheet">
+        <style>
+            div#id-div{
+                background-color:rgb(32, 138, 133);
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            
+            <h1 class="page-header">CSS Selectors by NAME HERE</h1>
+            
+        <nav>
+            <ul>
+                <li><a href="#id">id</a></li>
+                <li><a href="#class">class</a></li>
+                <li><a href="#compound">compound</a></li>
+            </ul>
+        </nav> 
+    </header>           
+        <p>This page demonstrates how CSS selectors work.</p>
+
+        <fieldset>
+            <legend><a id="id">id</a></legend>
+            <p>ids can be applied to only one item on a page</p>
+            <p>Here's how we hook an id attribute to an element:</p>
+            <pre><code>id="id-div"</code></pre>
+            <p>Here's how the CSS is applied to the element:</p>
+            <pre><code>div#id-div{
+    background-color:yellow;
+}</code></pre>
+
+
+            <p>Here's what it looks like:</p>
+            <div id="id-div">Inside my-div!!!</div>
+        </fieldset>
+
+        <footer class="page-footer">
+            <p><small>&copy; 2023 by 
+                Varya Hinkel, All Rights Reserved ~ 
+                <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
+                <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
+           </p>
+          </footer>
+        <script>
+            document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
+            document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
+        </script>
+    </body>
+</html>
