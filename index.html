@@ -1,64 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Time of Day</title>
-	<!-- Link the the js file with the logic -->
-	<script src="script.js"></script>
-    <meta name="robots" content="noindex,nofollow">
-    <style>
-		* {padding:0; margin:0;}
-		html {background-color:#ccc;}
-		body {
-			font-family: Arial, Helvetica, sans-serif;
-			max-width:960px; /* keeps from getting too large on wide screen */
-			width:90%; /* shrink to fit screen */
-			margin:auto; /* center in html element */
-			background-color:#fff;
-			padding:20px;
-			min-height:100%; /* keeps from getting too large on wide screen */
-			}
-		img.flexible {
-			float:right;
-			display:inline-block;
-			padding:20px;
-			max-width:300px; /* actual size of image */
-			width:33%; /* approximate size taken on screen in maximum view */
-		}
-		p {margin:10px;}
-		h1,h2,h3,h4,h5,h6{
-			font-weight:normal;
-			margin:10px;
-			}
-		h1.masthead {margin-top:0;}
-		footer {
-			text-align:center;
-			clear:both; /* ride below all items */
-		}
-    </style>
-</head>
-<body>
-	<header>
-		<h1 class="masthead">Time of Day</h1>
-	</header>
-    <main id="content">
-	 <header><h3>A JavaScript Project by Varya Hinkel</h3></header>
-	    <p>This web page will dynamically change based on the time of day!</p>
-		<!--Day of the week extra credit-->
-		<p id="day-of-week"></p> 
-	  <img src="images/morning.jpg" alt="Time of Day Image" class="flexible">
-     <footer>
-		<!-- Span for the current year substitution -->
-      <p><small>&copy; 2022 - <span id="current-year"></span> by 
-          Varya Hinkel, All Rights Reserved ~ 
-          <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
-          <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
-     </p>
-    </footer>
-  </main>
- <script>
-    document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
-    document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
- </script>
-</body>
+    <head>
+        <title>Creatures - JS Data Attributes Example</title>
+
+        <style>
+            
+            div.creature{
+                padding:5px;
+                border:2px solid black;
+                border-radius:10px;
+                max-width:400px;
+                min-height:100px;
+                margin-bottom:5px;
+            } 
+            
+            div.creature img{
+                max-width:200px;
+                float:right;
+    
+            }
+
+        </style>
+    </head>   
+    <body>
+    <h1>Creatures</h1>
+    <h3>A JavaScript data attributes example by Varya Hinkel</h3>
+    <p>This page demonstrates how to use JavaScript data attributes to differentiate data.</p>
+    <p>When you click <b>Show Creature Home</b>, the background color will change color based on their natural environment:
+    </p> 
+    <div>
+        <ul>
+            <li>land: green</li>
+            <li>water: blue</li>
+            <li>air: yellow</li>
+        </ul>
+    </div>
+
+    <p>When you click <b>Show Creature Type</b>, the border color and style will changed based on the type of creature:</p>
+    <div> 
+        <ul>
+            <li>animal: soli red</li>
+            <li>insect: dashed orange</li>
+        </ul>
+    </div>
+    <div class="creature" data-type="land" animal-type="animal">    
+        <img src="images/monkey.png" alt="monkey">
+        <h3>Monkey</h3>
+        <p>Monkeys are cute, but don't try to cuddle them.</p>
+    </div>
+        
+   <div class="creature" data-type="air" animal-type="animal">    
+        <img src="images/hummingbird.png" alt="hummingbird">
+        <h3>Hummingbird</h3>
+        <p>Hummingbirds are cute, but don't get in the way of their food.</p>
+    </div>
+        
+    <div class="creature" data-type="land" animal-type="insect">    
+        <img src="images/spider.png" alt="spider">
+        <h3>Spiders</h3>
+    <p>Spiders are not cute, in fact they creep me out.</p>
+    </div>
+        
+   <div class="creature" data-type="air" animal-type="animal">    
+        <img src="images/crow.png" alt="crow">
+        <h3>Crow</h3>
+        <p>Crows are not cute, and don't feed them your french fries.</p>
+    </div> 
+        
+        
+    <div class="creature" data-type="water" animal-type="animal">    
+        <img src="images/fish.png" alt="fish">
+        <h3>Fish</h3>
+        <p>Fish are not cute, but they taste good!</p>
+    </div>
+        
+    <div class="creature" data-type="land" animal-type="insect">    
+        <img src="images/stinkbug.png" alt="stinkbug">
+        <h3>Stink Bug</h3>
+        <p>Stinkbugs are not cool!  Don't touch them!</p>
+    </div>    
+        
+    <p>
+        <button onclick="showHome()">Show Creature Home</button> 
+        <button onclick="showType()">Show Creature Type</button> 
+        <button onclick="clearAll()">Clear All</button>
+    </p>
+     
+    <script>
+
+        
+        function showHome()
+        {
+            /*
+                loop through all creatures
+                
+                if creature lives on land, background color green
+                if creature lives in water, blue
+                if creature lives in air, yellow
+                
+                */
+               //select all elements with the class 'creature'
+            const creature = document.querySelectorAll('.creature');
+            //loop through the nodelist and change the background color based on type
+            creature.forEach(creature => {
+                if(creature.getAttribute('data-type') == 'land') {
+                    creature.style.backgroundColor = "green";
+                } else if (creature.getAttribute('data-type') == 'water') {
+                    creature.style.backgroundColor = "blue";
+                } else {
+                    creature.style.backgroundColor = "yellow";
+                }
+            });
+            
+        }//end showHome()
+        
+        function showType()
+        {
+            /*
+                loop through all creatures
+                
+                if creature is an animal, border color solid red
+                if creature is an insect, border color is dashed orange
+            */
+            const creature = document.querySelectorAll('.creature');
+            //loop through the nodelist and change the background color based on type
+            creature.forEach(creature => {
+                if(creature.getAttribute('animal-type') == 'animal') {
+                    creature.style.borderColor = "red";
+                } else {
+                    creature.style.borderColor = "orange";
+                    creature.style.borderStyle = "dashed";
+                }
+            });
+        }//end showType()
+
+        function clearAll()
+        {
+            /*
+                loop through all creatures
+                
+                clear border back to 1px solid black
+                clear background color to white
+                
+            */
+            const creature = document.querySelectorAll('.creature');
+            
+            creature.forEach(creature => {
+                creature.style.backgroundColor = "white";
+                creature.style.borderColor = "black";
+                creature.style.borderStyle = "solid";
+                
+            });
+        }//end clearAll()
+
+    </script>    
+    </body>
 </html>
